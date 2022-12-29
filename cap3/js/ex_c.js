@@ -7,30 +7,25 @@ function mostrarPermanencia(){
     //cria a variável a ser preenchida no campo 
 
     var moedas = Number(inMoedas.value);
+    var trocoDe30 = moedas - 1;
+    var trocoDe60 = moedas - 1.75;
+    var trocoDe120 = moedas - 3;
 
     //calcula o resto para ver se tem troco 
 
-    if (moedas < 1){
-        outPermanencia.textContent="Valor insuficiente";
-        return;
+    if (moedas >= 1 && moedas < 1.75){
+        outPermanencia.textContent= "30 minutos";
+        outTroco.textContent = "Seu troco é " + trocoDe30;
     }
-    if (moedas >= 1){
-        outPermanencia.textContent = "Você tem 30 minutos e Seu troco é " + (moedas - 1);
-        return;
+    else if (moedas >= 1.75 && moedas < 3){
+        outPermanencia.textContent = "60 minutos";
+        outTroco.textContent = "Seu troco é " + trocoDe60;
+    } else {
+        outPermanencia.textContent = "120 minutos é o máximo!";
+        outTroco.textContent = "Seu troco é " + trocoDe120;
     }
-    if (moedas >= 1.75){
-        outPermanencia.textContent = "Você tem 60 minutos e seu troco é " + (moedas - 1.75);
-        return;
-    }
-    if (moedas == 3){
-        outPermanencia.textContent = "Você tem 120 minutos!"
-        return;
-    }
-    if (moedas > 3){
-        outPermanencia.textContent = "O tempo máximo é de 120 minutos e seu troco é" + (moedas - 3);
-    }
+}
 //cria a referência do elemento btExibir e associa a function ao evento click
 var btExibir = document.getElementById("btExibir");
 btExibir.addEventListener("click", mostrarPermanencia);
 
-}
