@@ -15,14 +15,14 @@ function mostrarPermanencia(){
 
     if (moedas >= 1 && moedas < 1.75){
         outPermanencia.textContent= "30 minutos";
-        outTroco.textContent = "Seu troco é " + trocoDe30;
+        outTroco.textContent = "Seu troco é R$ " + trocoDe30.toFixed(2);
     }
     else if (moedas >= 1.75 && moedas < 3){
         outPermanencia.textContent = "60 minutos";
-        outTroco.textContent = "Seu troco é " + trocoDe60;
+        outTroco.textContent = "Seu troco é R$ " + trocoDe60.toFixed(2);
     } else {
-        outPermanencia.textContent = "120 minutos é o máximo!";
-        outTroco.textContent = "Seu troco é " + trocoDe120;
+        outPermanencia.textContent = "120 minutos é o máximo de uso!";
+        outTroco.textContent = "Seu troco é R$ " + trocoDe120.toFixed(2);
     }
 }
 //cria a referência do elemento btExibir e associa a function ao evento click
